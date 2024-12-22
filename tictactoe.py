@@ -1,15 +1,3 @@
-"""AnsahAkromaA3Q1
- 
-COMP 1012  SECTION A01 
-INSTRUCTOR [Meng Cheng Lau] 
-ASSIGNMENT: A3 Question 1 
-AUTHOR    [Akroma Ansah] 
-VERSION   [2022-29-Mar] 
- 
-PURPOSE: Noughts and Crosses Game
-"""
-
-
 
 import numpy as np
 import random
