@@ -244,7 +244,7 @@ while game_over == False:
             display_current_board(arry)   
             player_choice = safe_input('Pick an open slot: ')
             
-            while not(player_choice.isdigit() and (int(player_choice) >= 1 and int(player_choice) <= 9)):
+            while not(player_choice.isdigit() or (int(player_choice) >= 1 and int(player_choice) <= 9)):
                 print("That's not an open slot.")
                 display_current_board(arry)
                 player_choice = safe_input('Pick an open slot: ')
