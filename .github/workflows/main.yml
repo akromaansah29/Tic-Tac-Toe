@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: 3.9  # Use Python 3.9 for testing
+        python-version: 3.11.4  # Use Python 3.9 for testing
 
     - name: Install dependencies
       run: |
