@@ -1,7 +1,3 @@
-import numpy as np
-import random
-
-
 class TicTacToe:
     def __init__(self):
         """Initialize the game with an empty board and game state."""
@@ -24,6 +20,8 @@ class TicTacToe:
             return 1
         elif 7 <= number <= 9:
             return 2
+        else:
+            
 
     def find_column(self, number):
         """Find the column corresponding to the player's choice."""
@@ -86,84 +84,3 @@ class TicTacToe:
             self.game_over = True
        
        
-
-
-    def play_turn(self, choice, mark):
-        """Play a turn for the given mark."""
-        row = self.find_row(choice)
-        col = self.find_column(choice)
-        if self.make_mark(row, col, mark):
-            return self.possible_termination(mark)
-        print(f"Slot {choice} is not available. Try again.")
-        return False
-
-    def validate_playerChoice(self):
-        
-        player_choice = input('Pick an open slot:') 
-        while not(int(player_choice) >= 1 and int(player_choice) <= 9):
-            print("That's not an open slot.")
-            self.display_current_board()
-            player_choice = input('Pick an open slot: ')
-            
-        row = self.find_row(int(player_choice))    
-        col = self.find_column(int(player_choice))
-
-        while self.is_available(row,col) == False:
-            print("That's not an open slot.")
-            self.display_current_board()
-            player_choice = input('Pick an open slot: ')
-            row = self.find_row(int(player_choice))    
-            col = self.find_column(int(player_choice))
-           
-        self.playerChoice = [row,col]
-        
-        
-
-    def play_game(self):
-        """Main interactive game logic."""
-        print('Welcome to Tic Tac Toe!')
-        print('===================================')
-        if self.first_play == 'H':
-            print('You go first. Your letter is X.') 
-        else:
-            computer_choice = random.randint(1,9)
-            row = self.find_row(computer_choice)
-            column = self.find_column(computer_choice)
-            self.make_mark(row,column,'O')
-            
-        while self.game_over  == False:
-           
-           if self.is_full() == False:
-                self.display_current_board()   
-                self.validate_playerChoice()
-                choice  = self.playerChoice
-                self.make_mark(choice[0],choice[1],'X') 
-                self.possible_termination('X')
-                if self.game_over == False:
-                    computer_choice = random.randint(1,9)
-                    row = self.find_row(computer_choice)
-                    col = self.find_column(computer_choice)
-                    while self.is_available(row,col) == False:
-                        computer_choice = random.randint(1,9)
-                        row = self.find_row(computer_choice)
-                        col = self.find_column(computer_choice)
-                    self.make_mark(row,col,'O')
-                    self.possible_termination('O')
-           else:
-                print('Tie')
-                print('Play again? Press Enter to play again.')   
-                print('\n')
-                print('**END OF PROGRAMMING**')   
-                self.game_over = True
-           
-           
-
- 
-            
-
-
-
-# Run the game
-if __name__ == "__main__":
-    game = TicTacToe()
-    game.play_game()
