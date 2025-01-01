@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from tictactoe import TestableTicTacToe
+from TestableTicTacToe import TestableTicTacToe
 
 class TestTicTacToe(unittest.TestCase):
 
