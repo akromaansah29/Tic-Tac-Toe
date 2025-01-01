@@ -2,11 +2,11 @@ import unittest
 import numpy as np
 from TestableTicTacToe import TestableTicTacToe
 
-class TestTicTacToe(unittest.TestCase):
+class test_tictactoe(unittest.TestCase):
 
     def setUp(self):
         """Set up a sample game board for tests."""
-        self.game = Tictactoe()
+        self.game = TestableTicTacToe()
         self.board = np.array([[' ', 'X', ' '],
                                ['O', 'X', 'O'],
                                [' ', ' ', 'X']])
