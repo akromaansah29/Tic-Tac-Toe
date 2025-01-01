@@ -62,7 +62,7 @@ class test_tictactoe(unittest.TestCase):
         self.assertFalse(self.game.is_avaliable(self.board, 3, 3))  # Out-of-range indices - edge case
         
     def test_make_mark(self):
-        self.game.make_mark(self.board, 0, 0, 'X')  # Mark empty slot
+        self.game.make_mark(0, 0, 'X')  # Mark empty slot
         self.assertEqual(self.board[0, 0], 'X')  # Check mark was made
         
         # attempting to mark an already occupied slot. it shouldn't be allowed. (edge case)
