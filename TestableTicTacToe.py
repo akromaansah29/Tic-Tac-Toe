@@ -13,6 +13,12 @@ class TestableTicTacToe(tictactoe):
             self.move_index += 1
             return move
         return None
+        
+    def is_full(self, board=None):
+        if board is None:
+            # if no board is passed then use default initialized board. this is mainly for testing if a paricular board is full
+            board = self.board   
+        return len(board[board == ' ']) == 0
 
     def play_game(self):
         """Automated game logic for testing."""
