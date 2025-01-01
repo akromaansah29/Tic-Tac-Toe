@@ -39,7 +39,7 @@ class tictactoe:
         """Check if a slot is available."""
         # validating indices
         if row < 0 or row >= self.board.shape[0] or col < 0 or col >= self.board.shape[1]:
-            return false
+            return False
         # checking availability    
         return self.board[row, col] == ' '
 
