@@ -6,7 +6,8 @@ class test_tictactoe(unittest.TestCase):
 
     def setUp(self):
         """Set up a sample game board for tests."""
-        self.game = TestableTicTacToe()
+        predefined_moves =[(0,0), (1,1), (2,2)]
+        self.game = TestableTicTacToe(predefined_moves)
         self.board = np.array([[' ', 'X', ' '],
                                ['O', 'X', 'O'],
                                [' ', ' ', 'X']])
