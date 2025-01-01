@@ -1,4 +1,4 @@
-class TicTacToe:
+class tictactoe:
     def __init__(self):
         """Initialize the game with an empty board and game state."""
         self.board = np.array([[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']])
