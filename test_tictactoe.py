@@ -56,10 +56,10 @@ class test_tictactoe(unittest.TestCase):
         self.assertFalse(self.game.is_full(self.board))  # Partially filled board 
         
     def test_is_avaliable(self):
-        self.assertTrue(self.game.is_avaliable(self.board, 0, 0))  # Empty slot
-        self.assertFalse(self.game.is_avaliable(self.board, 0, 1))  # Already marked slot'
-        self.assertFalse(self.game.is_avaliable(self.board, -1, 0))  # Negative row - edge case
-        self.assertFalse(self.game.is_avaliable(self.board, 3, 3))  # Out-of-range indices - edge case
+        self.assertTrue(self.game.is_available(self.board, 0, 0))  # Empty slot
+        self.assertFalse(self.game.is_available(self.board, 0, 1))  # Already marked slot'
+        self.assertFalse(self.game.is_available(self.board, -1, 0))  # Negative row - edge case
+        self.assertFalse(self.game.is_available(self.board, 3, 3))  # Out-of-range indices - edge case
         
     def test_make_mark(self):
         self.game.make_mark(0, 0, 'X')  # Mark empty slot
