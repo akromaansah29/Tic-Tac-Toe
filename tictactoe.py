@@ -37,6 +37,10 @@ class tictactoe:
 
     def is_available(self, row, col):
         """Check if a slot is available."""
+        # validating indices
+        if row < 0 or row >= self.board.shape[0] or column < 0 or column >= self.board.shape[1]:
+            return false
+        # checking availability    
         return self.board[row, col] == ' '
 
     def make_mark(self, row, col, mark):
