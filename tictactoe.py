@@ -21,7 +21,7 @@ class TicTacToe:
         elif 7 <= number <= 9:
             return 2
         else:
-            raise ValueError(f"Invalid input: {number}. Please enter a number between 1 and 9."
+            raise ValueError(f"Invalid input: {number}. Please enter a number between 1 and 9.")
             
 
     def find_column(self, number):
