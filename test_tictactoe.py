@@ -1,28 +1,47 @@
 import unittest
 import numpy as np
-from tictactoe import find_row, find_column, is_full, is_avaliable, make_mark
+from tictactoe import TestableTicTacToe
 
 class TestTicTacToe(unittest.TestCase):
 
     def setUp(self):
         """Set up a sample game board for tests."""
+        self.game = Tictactoe()
         self.board = np.array([[' ', 'X', ' '],
                                ['O', 'X', 'O'],
                                [' ', ' ', 'X']])
+        self.game.board = self.board
 
     # Test for find_row function
     def test_find_row(self):
+        """Test find_row with valid inputs."""
         self.assertEqual(find_row(1), 0)  # Top row
         self.assertEqual(find_row(5), 1)  # Middle row
         self.assertEqual(find_row(9), 2)  # Bottom row
 
     # Test for find_column function
     def test_find_column(self):
+        """Test find_column with valid inputs."""
         self.assertEqual(find_column(1), 0)  # Column 0
         self.assertEqual(find_column(5), 1)  # Column 1
         self.assertEqual(find_column(9), 2)  # Column 2
-
-    # Test for is_full function
+        
+    
+    def test_find_column_invalid_inputs(self):
+        """Test find_column with invalid inputs (edge cases)."""
+        with self.assertRaises(ValueError)
+            self.game.find_column(0)  # Invalid input: below valid range
+        with self.assertRaises(ValueError):
+            self.game.find_column(12)  # Invalid input: above valid range
+        
+    def test_find_row_edge_cases(self):
+        with self.assertRaises(ValueError):
+            self.game.find_row(0)  # Input too low
+        with self.assertRaises(ValueError):
+            self.game.find_row(-5)  # Negative input
+        with self.assertRaises(ValueError):
+            self.game.find_row(10)  # Input too high  
+            
     def test_is_full(self):
         full_board = np.array([['X', 'O', 'X'],
                                ['O', 'X', 'O'],
@@ -33,23 +52,22 @@ class TestTicTacToe(unittest.TestCase):
 
         self.assertTrue(is_full(full_board))  # Board is full
         self.assertFalse(is_full(empty_board))  # Board is empty
-        self.assertFalse(is_full(self.board))  # Partially filled board
-
-    # Test for is_avaliable function
+        self.assertFalse(is_full(self.board))  # Partially filled board 
+        
     def test_is_avaliable(self):
         self.assertTrue(is_avaliable(self.board, 0, 0))  # Empty slot
         self.assertFalse(is_avaliable(self.board, 0, 1))  # Already marked slot'
         self.assertFalse(is_avaliable(self.board, -1, 0))  # Negative row - edge case
         self.assertFalse(is_avaliable(self.board, 3, 3))  # Out-of-range indices - edge case
         
-
-    # Test for make_mark function
     def test_make_mark(self):
         make_mark(self.board, 0, 0, 'X')  # Mark empty slot
         self.assertEqual(self.board[0, 0], 'X')  # Check mark was made
         
-
-       
-
-# Run the tests
-unittest.main(argv=[''], verbosity=2, exit=False)
+        # attempting to mark an already occupied slot. it shouldn't be allowed. (edge case)
+        self.game.make_mark(0, 1, 'O')  # Try to overwrite slot with 'X'
+        self.assertNotEqual(self.board[0, 1], 'O')  # Slot should remain 'X'
+        self.assertEqual(self.board[0, 1], 'X')  # check that it didn't change
+        
+    unittest.main(argv=[''], verbosity=2, exit=False)
+        
