@@ -1,3 +1,5 @@
+from tictactoe import TicTacToe  # Import the parent class
+
 class TestableTicTacToe(TicTacToe):
     def __init__(self, predefined_moves):
         super().__init__()
