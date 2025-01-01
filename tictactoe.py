@@ -21,6 +21,7 @@ class TicTacToe:
         elif 7 <= number <= 9:
             return 2
         else:
+            raise ValueError(f"Invalid input: {number}. Please enter a number between 1 and 9."
             
 
     def find_column(self, number):
@@ -28,7 +29,9 @@ class TicTacToe:
         col_map = {1: 0, 4: 0, 7: 0,
                    2: 1, 5: 1, 8: 1,
                    3: 2, 6: 2, 9: 2}
-        return col_map.get(number, -1)
+        if number not in col_map:
+            raise ValueError(f"Invalid input: {number}. Please enter a number between 1 and 9.")
+        return col_map[number]
 
     def is_available(self, row, col):
         """Check if a slot is available."""
