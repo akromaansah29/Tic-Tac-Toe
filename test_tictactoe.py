@@ -16,16 +16,16 @@ class test_tictactoe(unittest.TestCase):
     # Test for find_row function
     def test_find_row(self):
         """Test find_row with valid inputs."""
-        self.assertEqual(find_row(1), 0)  # Top row
-        self.assertEqual(find_row(5), 1)  # Middle row
-        self.assertEqual(find_row(9), 2)  # Bottom row
+        self.assertEqual(self.game.find_row(1), 0)  # Top row
+        self.assertEqual(self.game.find_row(5), 1)  # Middle row
+        self.assertEqual(self.game.find_row(9), 2)  # Bottom row
 
     # Test for find_column function
     def test_find_column(self):
         """Test find_column with valid inputs."""
-        self.assertEqual(find_column(1), 0)  # Column 0
-        self.assertEqual(find_column(5), 1)  # Column 1
-        self.assertEqual(find_column(9), 2)  # Column 2
+        self.assertEqual(self.game.find_column(1), 0)  # Column 0
+        self.assertEqual(self.game.find_column(5), 1)  # Column 1
+        self.assertEqual(self.game.find_column(9), 2)  # Column 2
         
     
     def test_find_column_invalid_inputs(self):
@@ -51,18 +51,18 @@ class test_tictactoe(unittest.TestCase):
                                 [' ', ' ', ' '],
                                 [' ', ' ', ' ']])
 
-        self.assertTrue(is_full(full_board))  # Board is full
-        self.assertFalse(is_full(empty_board))  # Board is empty
-        self.assertFalse(is_full(self.board))  # Partially filled board 
+        self.assertTrue(self.game.is_full(full_board))  # Board is full
+        self.assertFalse(self.game.is_full(empty_board))  # Board is empty
+        self.assertFalse(self.game.is_full(self.board))  # Partially filled board 
         
     def test_is_avaliable(self):
-        self.assertTrue(is_avaliable(self.board, 0, 0))  # Empty slot
-        self.assertFalse(is_avaliable(self.board, 0, 1))  # Already marked slot'
-        self.assertFalse(is_avaliable(self.board, -1, 0))  # Negative row - edge case
-        self.assertFalse(is_avaliable(self.board, 3, 3))  # Out-of-range indices - edge case
+        self.assertTrue(self.game.is_avaliable(self.board, 0, 0))  # Empty slot
+        self.assertFalse(self.game.is_avaliable(self.board, 0, 1))  # Already marked slot'
+        self.assertFalse(self.game.is_avaliable(self.board, -1, 0))  # Negative row - edge case
+        self.assertFalse(self.game.is_avaliable(self.board, 3, 3))  # Out-of-range indices - edge case
         
     def test_make_mark(self):
-        make_mark(self.board, 0, 0, 'X')  # Mark empty slot
+        self.game.make_mark(self.board, 0, 0, 'X')  # Mark empty slot
         self.assertEqual(self.board[0, 0], 'X')  # Check mark was made
         
         # attempting to mark an already occupied slot. it shouldn't be allowed. (edge case)
