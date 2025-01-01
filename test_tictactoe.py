@@ -29,7 +29,7 @@ class TestTicTacToe(unittest.TestCase):
     
     def test_find_column_invalid_inputs(self):
         """Test find_column with invalid inputs (edge cases)."""
-        with self.assertRaises(ValueError)
+        with self.assertRaises(ValueError):
             self.game.find_column(0)  # Invalid input: below valid range
         with self.assertRaises(ValueError):
             self.game.find_column(12)  # Invalid input: above valid range
