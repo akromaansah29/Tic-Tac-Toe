@@ -51,8 +51,8 @@ class test_tictactoe(unittest.TestCase):
                                 [' ', ' ', ' '],
                                 [' ', ' ', ' ']])
 
-        self.assertTrue(self.game.is_full(board = full_board))  # Board is full
-        self.assertFalse(self.game.is_full(board = empty_board))  # Board is empty
+        self.assertTrue(self.game.is_full(board=full_board))  # Board is full
+        self.assertFalse(self.game.is_full(board=empty_board))  # Board is empty
         self.assertFalse(self.game.is_full())  # Partially filled board 
         
     def test_is_avaliable(self):
