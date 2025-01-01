@@ -1,4 +1,4 @@
-from tictactoe import TicTacToe  # Import the parent class
+from tictactoe import tictactoe  # Import the parent class
 
 class TestableTicTacToe(TicTacToe):
     def __init__(self, predefined_moves):
