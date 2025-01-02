@@ -3,7 +3,11 @@
 This project implements a Tic-Tac-Toe game in Python. It includes:
 - **Interactive Version**: Allows users to play interactively.
 - **Testable Version**: Designed for automated testing with predefined moves.
+  
+## Running the Interactive Version
 
+The interactive version of the Tic-Tac-Toe game (`InteractiveTicTacToe.py`) cannot be tested on GitHub due to the use of user inputs. However, you can easily run it locally in your preferred Integrated Development Environment (IDE).
+ 
 ## Features
 - Play against the computer.
 - Supports automated testing.
