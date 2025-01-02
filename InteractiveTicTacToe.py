@@ -1,3 +1,6 @@
+from tictactoe import tictactoe # Import the parent class
+import random
+
 class InteractiveTicTacToe(TicTacToe):
     def __init__(self):
         super().__init__()  # Call Parent's __init__()
@@ -60,5 +63,12 @@ class InteractiveTicTacToe(TicTacToe):
                 print('\n')
                 print('**END OF PROGRAMMING**')   
                 self.game_over = True
+
+def main():
+    game = InteractiveTicTacToe()
+    game.play_game()
+    
+if __name__ == "__main__":
+    main()
            
     
